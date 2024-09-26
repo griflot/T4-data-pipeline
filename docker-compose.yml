@@ -4,3 +4,4 @@ services:
     restart: unless-stopped
     ports:
       - '9092:9092'
+    container_name: kafka-broker
