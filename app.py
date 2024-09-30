@@ -1,8 +1,11 @@
 from flask import Flask, request, jsonify
 from kafka import KafkaProducer
-
 app = Flask(__name__)
 producer = KafkaProducer(bootstrap_servers='localhost:9092')
+
+@app.route('/')
+def index():
+    return "<h1>Welcome to the Student Grades API!</h1><p>Use the /send endpoint to submit grades.</p>"
 
 @app.route('/send', methods=['POST'])
 def send():
