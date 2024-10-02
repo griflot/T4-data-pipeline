@@ -5,3 +5,14 @@ services:
     ports:
       - '9092:9092'
     container_name: kafka-broker
+
+  mage:
+    image: elestio/mage-ai:latest
+    restart: unless-stopped
+    # environment:
+      # - REQUIRE_USER_AUTHENTICATION=1
+    volumes:
+      - "./mage:/home/src"
+    ports:
+      - '6789:6789'
+    container_name: mage-ai
