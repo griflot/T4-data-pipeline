@@ -24,4 +24,4 @@ class CustomSink(BasePythonSink):
             extra information that can be used in the write method (e.g. timestamp, index, etc.).
         """
         for msg in messages:
-            pass
+            print(msg)
