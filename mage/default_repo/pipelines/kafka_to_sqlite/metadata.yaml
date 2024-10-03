@@ -43,7 +43,7 @@ executor_config: {}
 executor_count: 1
 executor_type: null
 extensions: {}
-name: Kafka to SQLite
+name: kafka_to_sqlite
 notification_config: {}
 remote_variables_dir: null
 retry_config: {}

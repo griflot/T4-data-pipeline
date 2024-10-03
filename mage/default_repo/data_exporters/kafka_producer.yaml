@@ -1,7 +1,7 @@
 connector_type: kafka
 bootstrap_server: "kafka:9092"
 topic: student-grades
-api_version: 0.10.2
+api_version: 3.8.0
 
 # Uncomment the config below to use SSL config
 # security_protocol: "SSL"

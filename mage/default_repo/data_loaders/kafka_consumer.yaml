@@ -3,7 +3,7 @@ bootstrap_server: "kafka:9092"
 topic: student-grades
 consumer_group: unique_consumer_group
 include_metadata: true
-api_version: 0.10.2
+api_version: 3.8.0
 
 # Uncomment the config below to use SSL config
 # security_protocol: "SSL"
