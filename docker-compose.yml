@@ -1,3 +1,4 @@
+version: '3'
 services:
   kafka:
     image: apache/kafka:latest
@@ -30,3 +31,5 @@ services:
     ports:
       - '6789:6789'
     container_name: mage-ai
+    entrypoint: >
+      sh -c "apt-get update && apt-get install -y sqlite3 && python3 -m pip install sqlite-utils && mage start"
