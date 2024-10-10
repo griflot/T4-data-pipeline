@@ -30,3 +30,11 @@ services:
     ports:
       - '6789:6789'
     container_name: mage-ai
+  
+  kafka-consumer:
+    build:
+      context: .
+    volumes:
+      - ./student_grades.db:/path/to/your/project/directory/student_grades.db
+    depends_on:
+      - kafka

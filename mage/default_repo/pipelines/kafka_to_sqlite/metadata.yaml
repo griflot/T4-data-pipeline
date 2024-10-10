@@ -3,7 +3,7 @@ blocks:
   color: null
   configuration: {}
   downstream_blocks:
-  - dummy_exporter
+  - vast_spellcaster
   executor_config: null
   executor_type: local_python
   has_callback: false
@@ -22,15 +22,15 @@ blocks:
   executor_config: null
   executor_type: local_python
   has_callback: false
-  language: yaml
-  name: dummy_exporter
+  language: python
+  name: vast spellcaster
   retry_config: null
-  status: not_executed
+  status: updated
   timeout: null
   type: data_exporter
   upstream_blocks:
   - kafka_consumer
-  uuid: dummy_exporter
+  uuid: vast_spellcaster
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
