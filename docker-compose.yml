@@ -23,8 +23,9 @@ services:
   mage:
     image: elestio/mage-ai:latest
     restart: unless-stopped
-    # environment:
+    environment:
       # - REQUIRE_USER_AUTHENTICATION=1
+      - USER_CODE_PATH=/home/src/default_repo
     volumes:
       - "./mage:/home/src"
     ports:

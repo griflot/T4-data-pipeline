@@ -31,6 +31,21 @@ blocks:
   upstream_blocks:
   - data_generator
   uuid: sqlite_exporter
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: kpi_testing
+  retry_config: null
+  status: updated
+  timeout: null
+  type: scratchpad
+  upstream_blocks: []
+  uuid: kpi_testing
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
