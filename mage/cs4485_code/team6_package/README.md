@@ -79,7 +79,7 @@ Currently Supported functions:
     'integer': lambda: random.randint(1, 999999),  # General integer
     'iso8601': lambda: fake.iso8601(),  # ISO8601 timestamp
     'float': lambda: round(random.uniform(-180.0, 180.0), 6),  # General float
-    'datetime': lambda: fake.date_time_between(start_date='-2y', end_date='now'),
+    'datetime': lambda: datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
     'nullable_datetime': lambda: fake.date_time_between(start_date='-2y', end_date='now') if random.choice([True, False]) else None,
     'status': lambda: fake.word(ext_word_list=["active", "inactive", "pending"]),
     'name': lambda: fake.name(),

@@ -17,7 +17,7 @@ class CustomSource(BasePythonSource):
         
         # Set parameters for data generation
         self.interval = 5.0  # Interval between batches in seconds
-        self.records_per_batch = 1  # Number of records per batch. SET TO 1 IF YOU WANT A NON-BATCH STREAM
+        self.records_per_batch = 1  # 1 IF YOU WANT A CONSTANT STREAM OF SINGLE RECORDS. FOR MORE THAN 1 USE THE STREAM_BATCH_DATA_GENERATOR INSTEAD
         self.total_batches = None  # Set to None for indefinite streaming
         self.batch_count = 0
 

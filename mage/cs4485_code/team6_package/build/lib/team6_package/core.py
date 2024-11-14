@@ -5,6 +5,7 @@ import json
 import argparse
 import io  # For in-memory CSV handling
 import time
+from datetime import datetime, timedelta
 from kafka import KafkaProducer
 from kafka import KafkaConsumer
 import logging
@@ -19,7 +20,7 @@ fake_functions = {
     'integer': lambda: random.randint(1, 999999),  # General integer
     'iso8601': lambda: fake.iso8601(),  # ISO8601 timestamp
     'float': lambda: round(random.uniform(-180.0, 180.0), 6),  # General float
-    'datetime': lambda: fake.date_time_between(start_date='-2y', end_date='now'),
+    'datetime': lambda: datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
     'nullable_datetime': lambda: fake.date_time_between(start_date='-2y', end_date='now') if random.choice([True, False]) else None,
     'status': lambda: fake.word(ext_word_list=["active", "inactive", "pending"]),
     'name': lambda: fake.name(),
@@ -314,6 +315,42 @@ def consume_messages_from_kafka(
         consumer.close()
         logging.info("Kafka consumer closed.")
     return messages
+
+def generate_batch_with_time_intervals(schema, num_records, start_time=None, interval_seconds=1):
+    """
+    Generates a batch of data records where each record's datetime field simulates time passing.
+
+    Parameters:
+    - schema (dict): The JSON schema defining the data fields and types.
+    - num_records (int): Number of records to generate.
+    - start_time (datetime): The starting datetime for the first record. If None, uses current time.
+    - interval_seconds (int or float): Number of seconds between each record's datetime.
+
+    Returns:
+    - data (list): List of generated records with adjusted datetime fields.
+    """
+    data = []
+    if start_time is None:
+        start_time = datetime.now()
+    else:
+        # Ensure start_time is a datetime object
+        if isinstance(start_time, str):
+            start_time = datetime.strptime(start_time, '%Y-%m-%d %H:%M:%S')
+
+    for i in range(num_records):
+        record = generate_single_record(schema)
+        # Adjust the datetime field
+        adjusted_time = start_time + timedelta(seconds=interval_seconds * i)
+        # Format the datetime as per your requirements
+        formatted_time = adjusted_time.strftime('%Y-%m-%d %H:%M:%S')
+
+        # Find the datetime field in the record and update it
+        for key, value in record.items():
+            if schema[key].lower() == 'datetime':
+                record[key] = formatted_time
+        data.append(record)
+    return data
+
 
 def main():
     parser = argparse.ArgumentParser(description="Generate fake data from a JSON schema.")
