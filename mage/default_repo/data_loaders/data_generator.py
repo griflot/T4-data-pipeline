@@ -9,14 +9,11 @@ if 'test' not in globals():
 
 @data_loader
 def load_data_from_api(*args, **kwargs):
-    """
-    Template for loading data from API
-    """
     # Load schema from schema templates folder
     schema = load_schema('/home/src/schemas/schema.json')
 
     # Generate batch of data according to schema
-    data = generate_data(schema, num_records=5)
+    data = generate_data(schema, num_records=5) #num_records is how many records will be generated.
 
     # Save data as StringIO object
     csv = save_to_csv(data)

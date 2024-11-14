@@ -14,3 +14,21 @@ Creating a Pipeline:
 
 ## End pipeline services
 Stop Mage and Kafka broker from terminal: `docker compose down`
+
+
+## To use Team 6 data generation tool
+1. In the T4-data-pipeline directory open the 'mage' folder. Open the 'schemas' folder. Add as many custom schemas as you want to this folder (read T6 package readme for more details on schema format).
+2. Start Mage and Kafka broker from terminal: `docker compose up`
+3. Select "Pipelines" from the left menu bar
+	3.1. If you want to generate a single batch of data choose batch_data_generation
+		2.1.1. Next to the '+New trigger' button is the 'Run@once' button. Click that and wait for the status to say 'Completed'
+	3.2. If you want to generate a stream of data choose stream_data_generation
+		3.2.1. Click on "Edit Pipeline".
+		3.2.2. You can edit the DATA LOADER to specify the generation interval, the records per batch, and the number of batches you want streamed.
+		3.2.3. Click on the 'Execute pipeline' button. Stream as many new data points as you want.
+4. To access the data you generated you will need to install team 6's python package locally.
+5. In your python code use the consume_messages_from_kafka function from Team 6's python package.
+
+##To clear the kafka topic
+1. run docker compose down
+2. run docker compose up
