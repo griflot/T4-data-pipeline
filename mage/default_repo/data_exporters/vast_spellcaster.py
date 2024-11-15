@@ -12,7 +12,7 @@ class CustomSink(BasePythonSink):
         """
         Initialize the SQLite connection.
         """
-        self.conn = sqlite3.connect('../student_grades.db')  
+        self.conn = sqlite3.connect('../s.db')  
         self.cursor = self.conn.cursor()
 
         # Create the table if it doesn't exist

@@ -1,0 +1,8 @@
+{
+    "datetime": "datetime",
+    "email": "email",
+    "order_number": "uuid",
+    "product_id": "uuid",
+    "price_dollars": "integer",
+    "manufactuting_cost_dollars": "integer"
+}
