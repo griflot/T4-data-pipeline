@@ -26,7 +26,7 @@ def export_data_to_file(df: DataFrame, **kwargs) -> None:
     dfcols = set()
     for field, values in df.iteritems():
         dfcols.add(field)
-    creation_command = "CREATE TABLE IF NOT EXISTS sales_entries ("
+    creation_command = "CREATE TABLE IF NOT EXISTS investment_entries ("
     for field in dfcols:
         creation_command += f"{field} TEXT, "
     creation_command = creation_command[:len(creation_command) - 2] + ")"
@@ -41,7 +41,7 @@ def export_data_to_file(df: DataFrame, **kwargs) -> None:
     """
     Create SQLite table insertion command
     """
-    insertion_command = "INSERT INTO sales_entries ("
+    insertion_command = "INSERT INTO investment_entries ("
     for field in dfcols:
         insertion_command += f"{field}, "
     insertion_command = insertion_command[:len(insertion_command) - 2] + ") VALUES ("

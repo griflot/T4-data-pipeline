@@ -1,4 +1,5 @@
-from kpi_formula.advanced import DataProcessor
+from kpi_formula.advanced.kpi_calculator import KPICalculator
+from pandas import DataFrame
 if 'transformer' not in globals():
     from mage_ai.data_preparation.decorators import transformer
 if 'test' not in globals():
@@ -6,7 +7,7 @@ if 'test' not in globals():
 
 
 @transformer
-def transform(data, *args, **kwargs):
+def transform(data: DataFrame, *args, **kwargs):
     """
     Template code for a transformer block.
 
@@ -20,9 +21,15 @@ def transform(data, *args, **kwargs):
     Returns:
         Anything (e.g. data frame, dictionary, array, int, str, etc.)
     """
-    # Specify your transformation logic here
-    
 
+    ROIs = []
+    for index, row in data.iterrows():
+        # Calculate return on investment (ROI) for each entry
+        ROI = KPICalculator.roi(revenue=row['revenue'], investment=row['initial_investment'])
+        ROIs.append(ROI)
+
+    # Add ROI as column in DataFrame
+    data['roi'] = ROIs
 
     return data
 

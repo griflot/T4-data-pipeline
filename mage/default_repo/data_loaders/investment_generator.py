@@ -13,7 +13,7 @@ def load_data_from_api(*args, **kwargs):
     Template for loading data from API
     """
     # Load schema from schema templates folder
-    schema = load_schema('/home/src/schemas/sales_schema.json')
+    schema = load_schema('/home/src/schemas/investment_schema.json')
 
     # Generate batch of data according to schema
     data = generate_data(schema, num_records=5)
