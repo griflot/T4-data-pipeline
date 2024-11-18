@@ -1,10 +1,8 @@
 {
-    "name": "name", 
-    "email": "email", 
-    "address": "address", 
-    "application_type": "application_type", 
-    "signal_strength": "signal_strength", 
-    "required_bandwidth": "required_bandwidth", 
-    "allocated_bandwidth": "allocated_bandwidth", 
-    "ip": "ip"
+  "datetime": "datetime",
+  "ip": "ip",
+  "required_bandwidth": "required_bandwidth",
+  "allocated_bandwidth": "allocated_bandwidth",
+  "sent_bytes": "sent_bytes",
+  "received_bytes": "received_bytes"
 }
