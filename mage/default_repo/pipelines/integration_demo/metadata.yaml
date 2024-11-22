@@ -1,74 +1,65 @@
 blocks:
 - all_upstream_blocks_executed: true
   color: null
-  configuration:
-    file_path: data_loaders/investment_generator.py
-    file_source:
-      path: data_loaders/investment_generator.py
+  configuration: {}
   downstream_blocks:
-  - kpi_transformer
+  - demo_transformer
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
-  name: investment_generator
+  name: demo_loader
   retry_config: null
   status: executed
   timeout: null
   type: data_loader
   upstream_blocks: []
-  uuid: investment_generator
+  uuid: demo_loader
 - all_upstream_blocks_executed: true
   color: null
-  configuration:
-    file_path: transformers/kpi_transformer.py
-    file_source:
-      path: transformers/kpi_transformer.py
+  configuration: {}
   downstream_blocks:
-  - sqlite_exporter
+  - demo_exporter
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
-  name: kpi_transformer
+  name: demo_transformer
   retry_config: null
   status: executed
   timeout: null
   type: transformer
   upstream_blocks:
-  - investment_generator
-  uuid: kpi_transformer
+  - demo_loader
+  uuid: demo_transformer
 - all_upstream_blocks_executed: true
   color: null
-  configuration:
-    file_source:
-      path: data_exporters/sqlite_exporter.py
+  configuration: {}
   downstream_blocks: []
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
-  name: sqlite_exporter
+  name: demo_exporter
   retry_config: null
   status: executed
   timeout: null
   type: data_exporter
   upstream_blocks:
-  - kpi_transformer
-  uuid: sqlite_exporter
+  - demo_transformer
+  uuid: demo_exporter
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
 conditionals: []
-created_at: '2024-11-15 02:39:22.977506+00:00'
+created_at: '2024-11-22 13:25:31.311997+00:00'
 data_integration: null
-description: calculate KPIs on sample batch data and store transformed data in a SQLite
-  DB
+description: null
 executor_config: {}
 executor_count: 1
 executor_type: null
 extensions: {}
-name: team5_integration_demo
+name: integration_demo
 notification_config: {}
 remote_variables_dir: null
 retry_config: {}
@@ -78,6 +69,6 @@ settings:
 spark_config: {}
 tags: []
 type: python
-uuid: team5_integration_demo
+uuid: integration_demo
 variables_dir: /home/src/mage_data/default_repo
 widgets: []

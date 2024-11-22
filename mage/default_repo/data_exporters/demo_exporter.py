@@ -19,7 +19,7 @@ def export_data_to_file(df: DataFrame, **kwargs) -> None:
     """
     conn = sqlite3.connect('databases/example.db')  
     cursor = conn.cursor()
-    tablename = "investment_entries"
+    tablename = "roi_entries"
 
     """
     Create SQLite table creation command
@@ -42,7 +42,7 @@ def export_data_to_file(df: DataFrame, **kwargs) -> None:
     """
     Create SQLite table insertion command
     """
-    insertion_command = "INSERT INTO investment_entries ("
+    insertion_command = f"INSERT INTO {tablename} ("
     for field in dfcols:
         insertion_command += f"{field}, "
     insertion_command = insertion_command[:len(insertion_command) - 2] + ") VALUES ("

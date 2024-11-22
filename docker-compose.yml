@@ -66,16 +66,6 @@ services:
     networks:
       - kafka_network
 
-  kafka-consumer:
-    build:
-      context: .
-    volumes:
-      - ./student_grades.db:/path/to/your/project/directory/student_grades.db
-    depends_on:
-      - kafka
-    networks:
-      - kafka_network
-
 networks:
   kafka_network:
     driver: bridge

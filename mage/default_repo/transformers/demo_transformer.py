@@ -25,7 +25,7 @@ def transform(data: DataFrame, *args, **kwargs):
     ROIs = []
     for index, row in data.iterrows():
         # Calculate return on investment (ROI) for each entry
-        ROI = KPICalculator.roi(revenue=row['revenue'], investment=row['initial_investment'])
+        ROI = KPICalculator.roi(revenue=int(row['revenue']), investment=int(row['initial_investment']))
         ROIs.append(ROI)
 
     # Add ROI as column in DataFrame

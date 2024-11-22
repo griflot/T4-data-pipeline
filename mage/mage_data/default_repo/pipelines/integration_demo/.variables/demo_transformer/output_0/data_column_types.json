@@ -1,0 +1,1 @@
+{"investment_date": "str", "revenue": "str", "evaluation_date": "str", "company_address": "str", "initial_investment": "str", "roi": "float64"}
