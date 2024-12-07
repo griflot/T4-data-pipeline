@@ -3,35 +3,35 @@ blocks:
   color: null
   configuration: {}
   downstream_blocks:
-  - demo_transformer
+  - demo_transformer_1
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
-  name: demo_loader
+  name: demo_loader_1
   retry_config: null
   status: executed
   timeout: null
   type: data_loader
   upstream_blocks: []
-  uuid: demo_loader
+  uuid: demo_loader_1
 - all_upstream_blocks_executed: true
   color: null
   configuration: {}
   downstream_blocks:
-  - demo_exporter
+  - demo_exporter_1
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
-  name: demo_transformer
+  name: demo_transformer_1
   retry_config: null
   status: executed
   timeout: null
   type: transformer
   upstream_blocks:
-  - demo_loader
-  uuid: demo_transformer
+  - demo_loader_1
+  uuid: demo_transformer_1
 - all_upstream_blocks_executed: true
   color: null
   configuration: {}
@@ -40,26 +40,26 @@ blocks:
   executor_type: local_python
   has_callback: false
   language: python
-  name: demo_exporter
+  name: demo_exporter_1
   retry_config: null
   status: executed
   timeout: null
   type: data_exporter
   upstream_blocks:
-  - demo_transformer
-  uuid: demo_exporter
+  - demo_transformer_1
+  uuid: demo_exporter_1
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
 conditionals: []
 created_at: '2024-11-22 13:25:31.311997+00:00'
 data_integration: null
-description: null
+description: generate, transform, and store batch data into a SQLite database
 executor_config: {}
 executor_count: 1
 executor_type: null
 extensions: {}
-name: integration_demo
+name: batch_pipeline_generator_template
 notification_config: {}
 remote_variables_dir: null
 retry_config: {}
@@ -69,6 +69,6 @@ settings:
 spark_config: {}
 tags: []
 type: python
-uuid: integration_demo
+uuid: batch_pipeline_generator_template
 variables_dir: /home/src/mage_data/default_repo
 widgets: []

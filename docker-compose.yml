@@ -22,7 +22,7 @@ services:
     ports:
       - '9092:9092'
       - '29092:29092'
-    container_name: kafka-broker
+    container_name: kafka-brokertest
     networks:
       - kafka_network
 
@@ -30,7 +30,7 @@ services:
     image: bitnami/kafka:latest  # Use an image with Kafka CLI tools
     depends_on:
       - kafka
-    container_name: kafka-topic-creator
+    container_name: kafka-topic-creatortest
     networks:
       - kafka_network
     entrypoint: >
@@ -62,7 +62,7 @@ services:
       - "./mage:/home/src"
     ports:
       - '6789:6789'
-    container_name: mage-ai
+    container_name: mage-aitest
     networks:
       - kafka_network
 

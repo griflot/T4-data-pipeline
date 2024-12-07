@@ -1,1 +1,2 @@
-mage/mage_data/default_repo/.cache/*
+scripts/node_modules
+mage/mage_data/default_repo/.cache
